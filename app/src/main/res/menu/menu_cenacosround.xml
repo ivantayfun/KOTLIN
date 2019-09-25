@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.ivan.colorknots.CenacosRound">
+    <!-- <item
+         android:id="@+id/menu_cena_kos"
+         android:orderInCategory="100"
+         android:title="Цена кос"
+         app:showAsAction="never" />-->
+    <!--<item
+        android:id="@+id/nastroiki"
+        android:orderInCategory="100"
+        android:title="НАСТРОЙКИ" />-->
+    <item
+        android:id="@+id/glavnaya"
+        android:orderInCategory="100"
+        android:title="ГЛАВНАЯ" />
+</menu>
