@@ -1,5 +1,4 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.ivan.colorknots.CenacosRound">
     <!-- <item
@@ -14,5 +13,5 @@
     <item
         android:id="@+id/glavnaya"
         android:orderInCategory="100"
-        android:title="ГЛАВНАЯ" />
+        android:title="@string/Glavnaya"/>
 </menu>

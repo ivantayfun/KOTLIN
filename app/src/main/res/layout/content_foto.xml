@@ -5,26 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/editText_trybok_v_kose"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center"
-            android:importantForAutofill="no"
-            android:hint="@string/trybok_v_kose"
-            android:inputType="number"
-            tools:layout_editor_absoluteX="81dp"
-            tools:layout_editor_absoluteY="304dp" />
-
-    </LinearLayout>
+    tools:context=".FotoActivity"
+    tools:showIn="@layout/activity_foto2">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

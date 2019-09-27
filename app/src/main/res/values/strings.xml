@@ -12,7 +12,7 @@
     <string name="dlina">Длина</string>
     <string name="foto_tkanb">ФОТО ТКАНЬ</string>
     <string name="kryglaya_kravatka">КРУГЛАЯ КРОВАТКА</string>
-    <string name="schemas">http://schemas.android.com/apk/res/android</string>
+    <string name="Glavnaya">Главная</string>
     <string-array name="otvetu">
         <item>3</item>
         <item>4</item>
@@ -51,4 +51,6 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_foto">FotoActivity</string>
 </resources>
