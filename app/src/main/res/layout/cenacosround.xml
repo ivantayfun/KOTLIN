@@ -8,8 +8,7 @@
     tools:context=".CenacosRound"
     tools:showIn="@layout/activity_cenacosround">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -20,6 +19,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
+            android:importantForAutofill="no"
             android:hint="@string/trybok_v_kose"
             android:inputType="number"
             tools:layout_editor_absoluteX="81dp"
@@ -31,6 +31,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
+            android:importantForAutofill="no"
             android:hint="@string/dlina_ovala"
             android:inputType="number"
             tools:layout_editor_absoluteX="25dp"
@@ -41,6 +42,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
+            android:importantForAutofill="no"
             android:hint="@string/shirina_ovala"
             android:inputType="number"
             tools:layout_editor_absoluteX="25dp"
@@ -51,6 +53,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
+            android:importantForAutofill="no"
             android:hint="@string/skidka"
             android:inputType="number"
             tools:layout_editor_absoluteX="25dp"
@@ -64,7 +67,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -80,10 +84,13 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/LinearLayoutEmpty"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical">
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -94,8 +101,7 @@
                 <TextView
                     android:id="@+id/textView_rezylbtat_dlina"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
         </LinearLayout>
@@ -103,7 +109,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -149,7 +156,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="0dp"

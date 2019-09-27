@@ -10,73 +10,75 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import java.text.DecimalFormat
+import kotlin.math.ln
 
 class CenacosRound :
     AppCompatActivity() {
-    internal var editText_trybok_v_kose: EditText? = null
-    internal var editText_dlina_ovala: EditText? = null
-    internal var editText_shirina_ovala: EditText? = null
-    internal var editText_skidka: EditText? = null
-    internal var dlina_blije_k_vbIbr_kose = 0
-    internal var dlina_cosu = 0.0
-    internal var skidka = 0.0
-    internal var chislo = 0.0
-    internal var osnovanie = 0.0
-    internal var ccc = 0.0
-    internal var skidka_rezylbtat = 0.0
+    private lateinit var editTextTtrybokVKose: EditText
+    private lateinit var editTextDlinaOvala: EditText
+    private lateinit var editTextShirinaOvala: EditText
+    private lateinit var editTextSkidka: EditText
+    private lateinit var textViewSkidka: TextView
+    private var dlinaBlijeKVbIbrKose = 0
+    private var dlinacosu = 0.0
+    private var skidka = 0.0
+    private var chislo = 0.0
+    private var osnovanie = 0.0
+    private var ccc = 0.0
+    private var skidkarezylbtat = 0.0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cenacosround)
         val toolbar: Toolbar =
             findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        dlina_blije_k_vbIbr_kose = 1
+        dlinaBlijeKVbIbrKose = 1
         val tvName: Button = findViewById(R.id.button2)
-        editText_trybok_v_kose = findViewById<EditText?>(R.id.editText_trybok_v_kose)
-        editText_dlina_ovala = findViewById<EditText?>(R.id.editText_dlina_ovala)
-        editText_shirina_ovala = findViewById<EditText?>(R.id.editText_shirina_ovala)
-        editText_skidka = findViewById<EditText?>(R.id.editText_skidka)
+        editTextTtrybokVKose = findViewById(R.id.editText_trybok_v_kose)
+        editTextDlinaOvala = findViewById(R.id.editText_dlina_ovala)
+        editTextShirinaOvala = findViewById(R.id.editText_shirina_ovala)
+        editTextSkidka = findViewById(R.id.editText_skidka)
+        textViewSkidka = findViewById(R.id.textView_skidka_rezylbtat)
         tvName.setOnClickListener {
             skidka = 0.0
-            if (editText_skidka!!.text.toString() != "") {
-                skidka =
-                    Integer.parseInt(editText_skidka!!.text.toString()).toDouble()
+            if (editTextSkidka.text.toString() != "") {
+                skidka = editTextSkidka.text.toString().toDouble()
             }
-            dlina_cosu =
-                if (Integer.parseInt(editText_dlina_ovala!!.text.toString()) < Integer.parseInt(
-                        editText_shirina_ovala!!.text.toString()
-                    )
+            dlinacosu =
+                if (editTextDlinaOvala.text.toString().toInt() <
+                    editTextShirinaOvala.text.toString().toInt()
                 ) {
-                    Integer.parseInt(editText_dlina_ovala!!.text.toString()) * 3.14 + (Integer.parseInt(
-                        editText_shirina_ovala!!.text.toString()
-                    ) - Integer.parseInt(editText_dlina_ovala!!.text.toString())) * 2
+                    editTextDlinaOvala.text.toString().toInt() * 3.14 + (
+                            editTextShirinaOvala.text.toString().toInt()
+                                - editTextDlinaOvala.text.toString().toInt()) * 2
                 }
                 //master
                 else {
-                    Integer.parseInt(editText_shirina_ovala!!.text.toString()) * 3.14 + (Integer.parseInt(
-                        editText_dlina_ovala!!.text.toString()
-                    ) - Integer.parseInt(editText_shirina_ovala!!.text.toString())) * 2
+                    editTextShirinaOvala.text.toString().toInt() * 3.14 + (
+                            editTextDlinaOvala.text.toString().toInt()
+                                - editTextShirinaOvala.text.toString().toInt()) * 2
                 }
 
-            val ggg_dlina = "$dlina_cosu см"
             val textView1: TextView =
                 findViewById(R.id.textView_rezylbtat_dlina)
-            textView1.text = ggg_dlina
+            textView1.text = ("$dlinacosu см")
             chislo =
-                dlina_cosu * Integer.parseInt(editText_trybok_v_kose!!.text.toString())
+                dlinacosu * editTextTtrybokVKose.text.toString().toInt()
             osnovanie = 5008.0
             ccc =
-                (2.48178 - Math.log(chislo * 100) / Math.log(osnovanie)) * chislo
+                (2.48178 - ln(chislo * 100) / ln(osnovanie)) * chislo
             val ggg = DecimalFormat("#0.00").format(ccc) + " грн"
             val textView: TextView =
                 findViewById(R.id.textView_rezylbtat)
             textView.text = ggg
-            skidka_rezylbtat = ccc * (100 - skidka) / 100
+            skidkarezylbtat = ccc * (100 - skidka) / 100
+
+
+
             val ggg2 =
-                DecimalFormat("#0.00").format(skidka_rezylbtat) + " грн"
-            val textView_skidka: TextView =
-                findViewById(R.id.textView_skidka_rezylbtat)
-            textView_skidka.text = ggg2
+                DecimalFormat("#0.00").format(skidkarezylbtat) + " грн"
+
+            textViewSkidka.text = ggg2
         }
     }
 
@@ -95,9 +97,7 @@ class CenacosRound :
 
         when (item.itemId) {
             R.id.glavnaya -> mainactivityfynk()
-            11 -> {
-            }
-        }
+                    }
         return super.onOptionsItemSelected(item)
     }
 
