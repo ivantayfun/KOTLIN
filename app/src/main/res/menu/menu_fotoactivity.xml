@@ -1,14 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.ivan.colorknots.CenacosRound">
+    tools:context="com.example.ivan.colorknots.FotoActivity">
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"/>
     <item
-        android:id="@+id/foto_tkanb"
+        android:id="@+id/cenacos_raund"
         android:orderInCategory="100"
-        android:title="@string/foto_tkanb" />
+        android:title="@string/kryglaya_kravatka" />
     <item
         android:id="@+id/glavnaya"
         android:orderInCategory="100"

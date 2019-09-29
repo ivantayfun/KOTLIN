@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import kotlinx.android.synthetic.main.activity_cenacosround.*
 import java.text.DecimalFormat
 import kotlin.math.ln
 
@@ -29,8 +30,6 @@ class CenacosRound :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cenacosround)
-        val toolbar: Toolbar =
-            findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         dlinaBlijeKVbIbrKose = 1
         val tvName: Button = findViewById(R.id.button2)
@@ -44,41 +43,43 @@ class CenacosRound :
             if (editTextSkidka.text.toString() != "") {
                 skidka = editTextSkidka.text.toString().toDouble()
             }
-            dlinacosu =
-                if (editTextDlinaOvala.text.toString().toInt() <
-                    editTextShirinaOvala.text.toString().toInt()
-                ) {
-                    editTextDlinaOvala.text.toString().toInt() * 3.14 + (
-                            editTextShirinaOvala.text.toString().toInt()
-                                - editTextDlinaOvala.text.toString().toInt()) * 2
-                }
-                //master
-                else {
-                    editTextShirinaOvala.text.toString().toInt() * 3.14 + (
-                            editTextDlinaOvala.text.toString().toInt()
-                                - editTextShirinaOvala.text.toString().toInt()) * 2
-                }
+            if ((editTextDlinaOvala.text.toString() !="" && editTextShirinaOvala.text.toString()!="" && editTextTtrybokVKose.text.toString()!="") &&
+                (editTextDlinaOvala.text.toString().toInt() != 0 && editTextShirinaOvala.text.toString().toInt()!= 0) && editTextTtrybokVKose.text.toString().toInt() != 0) {
+                dlinacosu =
+                    if (editTextDlinaOvala.text.toString().toInt() <
+                        editTextShirinaOvala.text.toString().toInt()
+                    ) {
+                        editTextDlinaOvala.text.toString().toInt() * 3.14 + (
+                                editTextShirinaOvala.text.toString().toInt()
+                                        - editTextDlinaOvala.text.toString().toInt()) * 2
+                    }
+                    //master
+                    else {
+                        editTextShirinaOvala.text.toString().toInt() * 3.14 + (
+                                editTextDlinaOvala.text.toString().toInt()
+                                        - editTextShirinaOvala.text.toString().toInt()) * 2
+                    }
 
-            val textView1: TextView =
-                findViewById(R.id.textView_rezylbtat_dlina)
-            textView1.text = ("$dlinacosu см")
-            chislo =
-                dlinacosu * editTextTtrybokVKose.text.toString().toInt()
-            osnovanie = 5008.0
-            ccc =
-                (2.48178 - ln(chislo * 100) / ln(osnovanie)) * chislo
-            val ggg = DecimalFormat("#0.00").format(ccc) + " грн"
-            val textView: TextView =
-                findViewById(R.id.textView_rezylbtat)
-            textView.text = ggg
-            skidkarezylbtat = ccc * (100 - skidka) / 100
+                val textView1: TextView =
+                    findViewById(R.id.textView_rezylbtat_dlina)
+                textView1.text = ("$dlinacosu см")
+                chislo =
+                    dlinacosu * editTextTtrybokVKose.text.toString().toInt()
+                osnovanie = 5008.0
+                ccc =
+                    (2.48178 - ln(chislo * 100) / ln(osnovanie)) * chislo
+                val ggg = DecimalFormat("#0.00").format(ccc) + " грн"
+                val textView: TextView =
+                    findViewById(R.id.textView_rezylbtat)
+                textView.text = ggg
+                skidkarezylbtat = ccc * (100 - skidka) / 100
 
 
+                val ggg2 =
+                    DecimalFormat("#0.00").format(skidkarezylbtat) + " грн"
 
-            val ggg2 =
-                DecimalFormat("#0.00").format(skidkarezylbtat) + " грн"
-
-            textViewSkidka.text = ggg2
+                textViewSkidka.text = ggg2
+            }
         }
     }
 
@@ -97,6 +98,8 @@ class CenacosRound :
 
         when (item.itemId) {
             R.id.glavnaya -> mainactivityfynk()
+            R.id.foto_tkanb -> fototkanbfynk()
+            R.id.action_settings -> settingfynk()
                     }
         return super.onOptionsItemSelected(item)
     }
@@ -115,5 +118,19 @@ class CenacosRound :
         )
         startActivity(intent)
         finish()
+    }
+    private fun fototkanbfynk() {
+        val intent = Intent(
+            this,
+            FotoActivity::class.java
+        )
+        startActivity(intent)
+    }
+    private fun settingfynk() {
+        val intent = Intent(
+            this,
+            SettingsActivity::class.java
+        )
+        startActivity(intent)
     }
 }

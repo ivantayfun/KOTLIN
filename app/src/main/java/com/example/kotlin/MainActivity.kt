@@ -46,25 +46,27 @@ class MainActivity : AppCompatActivity() {
             if (editTextSkidka.text.toString() != "") {
                 skidka = editTextSkidka.text.toString().toDouble()
             }
+            if ((editTextDlinaKosbI.text.toString() !="" && editTextTrybokVKose.text.toString()!="") &&
+                (editTextDlinaKosbI.text.toString().toInt() !=0 && editTextTrybokVKose.text.toString().toInt()!=0)) {
+                chislo = (editTextDlinaKosbI.text.toString().toInt() *
+                        editTextTrybokVKose.text.toString().toInt()
+                        ).toDouble()
 
-            chislo = (editTextDlinaKosbI.text.toString().toInt() *
-                    editTextTrybokVKose.text.toString().toInt()
-                ).toDouble()
+                osnovanie = 5008.0
+                ccc =
+                    (2.48178 - ln(chislo * 100) / ln(osnovanie)) * chislo
+                val ggg = DecimalFormat("#0.00").format(ccc) + " грн"
+                val textView: TextView =
+                    findViewById(R.id.textView_rezylbtat)
+                textView.text = ggg
+                skidkaRezylbtat = ccc * (100 - skidka) / 100
+                val ggg1 =
+                    DecimalFormat("#0.00").format(skidkaRezylbtat) + " грн"
 
-            osnovanie = 5008.0
-            ccc =
-                (2.48178 - ln(chislo * 100) / ln(osnovanie)) * chislo
-            val ggg = DecimalFormat("#0.00").format(ccc) + " грн"
-            val textView: TextView =
-                findViewById(R.id.textView_rezylbtat)
-            textView.text = ggg
-            skidkaRezylbtat = ccc * (100 - skidka) / 100
-            val ggg1 =
-                DecimalFormat("#0.00").format(skidkaRezylbtat) + " грн"
-
-            val textViewSkidka: TextView =
-                findViewById(R.id.textView_skidka_rezylbtat)
-            textViewSkidka.text = ggg1
+                val textViewSkidka: TextView =
+                    findViewById(R.id.textView_skidka_rezylbtat)
+                textViewSkidka.text = ggg1
+            }
         }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -90,7 +92,7 @@ class MainActivity : AppCompatActivity() {
     private fun fototkanbfynk() {
         val intent = Intent(
             this,
-            CenacosRound::class.java
+            FotoActivity::class.java
         )
         startActivity(intent)
     }

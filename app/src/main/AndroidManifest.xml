@@ -12,11 +12,9 @@
         <activity
             android:name=".FotoActivity"
             android:label="@string/title_activity_foto"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
